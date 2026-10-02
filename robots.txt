@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reyting-online-kazino924.github.io/sitemap.xml
