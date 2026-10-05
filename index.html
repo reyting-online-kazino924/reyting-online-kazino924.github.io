@@ -17,142 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Noto+Sans:ital,wght@0,400;0,600;1,400&display=swap">
-<style>
-:root{
- --ice:#edf2f8;--sheet:#f9fbfd;--sheet-2:#e3eaf3;--raised:#ffffff;
- --ink:#101a2b;--ink-2:#3d4a60;--ink-3:#62708a;--hair:#cdd7e4;--hair-2:#a7b4c7;
- --cobalt:#1e4db0;--cobalt-fill:#2a5cc8;--cobalt-soft:#dbe5f9;--on-cobalt:#f3f7ff;
- --ok:#1f6f55;--ok-soft:#d8ece3;--no:#a8372c;--no-soft:#f4dcd8;--mid:#86621a;--mid-soft:#f1e6cc;
- --r1:#1e4db0;--r2:#b0542a;--r3:#5a7d2f;--bar-rest:#cfd8e4;
- --serif:"Noto Serif","PT Serif",Georgia,serif;--sans:"Noto Sans","Segoe UI",Roboto,system-ui,sans-serif;
- --fs-h1:clamp(1.9rem,1.3rem + 2.4vw,2.9rem);--fs-h2:clamp(1.35rem,1.15rem + .9vw,1.7rem);--fs-h3:1.125rem;--fs-lead:clamp(1.05rem,1rem + .35vw,1.17rem);--fs-body:1.04rem;--fs-ui:.92rem;--fs-small:.86rem;--fs-micro:.76rem;
- --gap:clamp(16px,4vw,28px);--block:clamp(44px,6vw,80px);--prose:700px;--wide:1080px;
- --rad:4px;--rad-lg:8px;
- --lift:0 1px 2px rgba(16,26,43,.06),0 8px 20px -12px rgba(16,26,43,.22);
- --ease:cubic-bezier(.22,1,.36,1);--t:180ms;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
- --ice:#0c1320;--sheet:#121b2b;--sheet-2:#1a2535;--raised:#1f2b3d;
- --ink:#e6edf7;--ink-2:#b4c0d2;--ink-3:#8593a8;--hair:#2a3749;--hair-2:#41506a;
- --cobalt:#7ea3ff;--cobalt-fill:#5f8af0;--cobalt-soft:#1c2c4e;--on-cobalt:#0b1326;
- --ok:#6cc3a0;--ok-soft:#163328;--no:#e3837a;--no-soft:#3b201d;--mid:#d6ad52;--mid-soft:#33290f;
- --r1:#7ea3ff;--r2:#e2865e;--r3:#9ec45f;--bar-rest:#2a3749;
- --lift:0 1px 2px rgba(0,0,0,.4),0 8px 20px -12px rgba(0,0,0,.6);
- color-scheme:dark}}
-:root[data-theme="dark"]{
- --ice:#0c1320;--sheet:#121b2b;--sheet-2:#1a2535;--raised:#1f2b3d;
- --ink:#e6edf7;--ink-2:#b4c0d2;--ink-3:#8593a8;--hair:#2a3749;--hair-2:#41506a;
- --cobalt:#7ea3ff;--cobalt-fill:#5f8af0;--cobalt-soft:#1c2c4e;--on-cobalt:#0b1326;
- --ok:#6cc3a0;--ok-soft:#163328;--no:#e3837a;--no-soft:#3b201d;--mid:#d6ad52;--mid-soft:#33290f;
- --r1:#7ea3ff;--r2:#e2865e;--r3:#9ec45f;--bar-rest:#2a3749;
- --lift:0 1px 2px rgba(0,0,0,.4),0 8px 20px -12px rgba(0,0,0,.6);
- color-scheme:dark}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ice);color:var(--ink);font:var(--fs-body)/1.62 var(--sans);overflow-x:hidden}
-a{color:var(--cobalt);text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{color:var(--cobalt-fill)}
-h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.2;margin:0 0 .5em;letter-spacing:-.005em}
-h1{font-size:var(--fs-h1)}h2{font-size:var(--fs-h2)}h3{font-size:var(--fs-h3);margin-top:1.6em}
-p{margin:0 0 1em}
-strong{font-weight:600}
-.skipto{position:absolute;left:8px;top:-60px;background:var(--cobalt);color:var(--on-cobalt);padding:8px 12px;border-radius:var(--rad);z-index:30}
-.skipto:focus{top:8px}
-
-/* шапка */
-.topline{position:sticky;top:0;z-index:20;background:var(--sheet);border-bottom:1px solid var(--hair);height:56px}
-.topline.pinned{box-shadow:var(--lift)}
-.topline-in{max-width:var(--wide);margin:0 auto;padding:0 var(--gap);height:56px;display:flex;align-items:center;gap:20px}
-.homemark{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:8px}
-.homemark svg{width:22px;height:22px}
-.index{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
-.index::-webkit-scrollbar{display:none}
-.index a{font-size:var(--fs-small);color:var(--ink-2);text-decoration:none;padding:6px 9px;border-radius:var(--rad);white-space:nowrap}
-.index a:hover{background:var(--sheet-2);color:var(--ink)}
-.index a.now{color:var(--cobalt);background:var(--cobalt-soft)}
-.lamp{border:1px solid var(--hair-2);background:transparent;color:var(--ink-2);border-radius:var(--rad);height:32px;padding:0 10px;font:var(--fs-small) var(--sans);cursor:pointer}
-.lamp:hover{border-color:var(--cobalt);color:var(--cobalt)}
-
-/* первый экран */
-.intro{max-width:var(--wide);margin:0 auto;padding:clamp(28px,5vw,56px) var(--gap) var(--block);display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:clamp(24px,4vw,48px);align-items:start}
-.issued{font-size:var(--fs-small);color:var(--ink-3);margin-bottom:14px}
-.issued b{color:var(--ink-2);font-weight:600}
-.intro-text{font-size:var(--fs-lead);color:var(--ink-2);line-height:1.6;max-width:62ch}
-.dossier{background:var(--sheet);border:1px solid var(--hair);border-radius:var(--rad-lg);box-shadow:var(--lift);padding:20px 22px}
-.dossier h2{font-size:1.15rem;margin-bottom:4px}
-.dossier-note{font-size:var(--fs-small);color:var(--ink-3);margin-bottom:14px}
-.dossier-list{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:var(--fs-ui)}
-.dossier-list dt{color:var(--ink-3);padding-top:2px}
-.dossier-list dd{margin:0;color:var(--ink);border-bottom:1px dotted var(--hair);padding-bottom:6px}
-.dossier-list dd:last-child{border-bottom:0}
-.dossier-sum{margin-top:14px;padding-top:12px;border-top:1px solid var(--hair);font-size:var(--fs-small);color:var(--ink-2)}
-
-/* секции */
-.leaf{border-top:1px solid var(--hair);padding:var(--block) 0}
-.leaf:nth-of-type(even){background:var(--sheet)}
-.leaf-in{max-width:var(--wide);margin:0 auto;padding:0 var(--gap);display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 clamp(12px,2vw,28px)}
-.marginal{font-family:var(--serif);color:var(--ink-3);font-size:var(--fs-small);padding-top:.55em;letter-spacing:.04em}
-.copy{max-width:var(--prose);min-width:0}
-.reply{font-size:var(--fs-lead);color:var(--ink);border-bottom:1px solid var(--hair);padding-bottom:1em;margin-bottom:1.2em}
-
-/* фигуры и таблицы */
-.exhibit{margin:1.6em 0;background:var(--raised);border:1px solid var(--hair);border-radius:var(--rad-lg);padding:16px 16px 10px;max-width:var(--wide)}
-.exhibit svg{width:100%;height:auto;display:block}
-.exhibit figcaption{font-size:var(--fs-small);color:var(--ink-3);margin:10px 2px 6px;line-height:1.45}
-.scrollbox{overflow-x:auto;margin:.6em 0 0;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;font-size:var(--fs-ui);min-width:520px}
-caption{text-align:left;font-weight:600;padding:0 0 8px;color:var(--ink-2);font-size:var(--fs-small)}
-th,td{padding:8px 10px;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top}
-th{font-weight:600;color:var(--ink-2);background:var(--sheet-2)}
-td.rt,th.rt{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-tbody tr:hover td{background:var(--sheet-2)}
-.scrollbox.fix th:first-child,.scrollbox.fix td:first-child{position:sticky;left:0;background:var(--raised);z-index:1}
-.scrollbox.fix th:first-child{background:var(--sheet-2)}
-.tone-ok{color:var(--ok);font-weight:600}.tone-no{color:var(--no);font-weight:600}.tone-mid{color:var(--mid);font-weight:600}
-
-/* списки и вставки */
-.copy ul,.copy ol{padding-left:1.3em;margin:0 0 1.1em}
-.copy li{margin:0 0 .45em}
-.tally{list-style:none;padding:0;margin:1em 0 1.4em;display:grid;gap:10px}
-.tally li{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:12px 14px;background:var(--raised);border:1px solid var(--hair);border-radius:var(--rad)}
-.tally li span.tally-no{font-family:var(--serif);color:var(--cobalt);font-weight:700;font-size:1.1rem;line-height:1.3}
-.aside{background:var(--cobalt-soft);border-radius:var(--rad-lg);padding:14px 18px;margin:1.3em 0;font-size:var(--fs-ui);color:var(--ink)}
-.aside b{color:var(--cobalt)}
-.flag{background:var(--no-soft);border-radius:var(--rad-lg);padding:14px 18px;margin:1.3em 0;font-size:var(--fs-ui)}
-.flag b{color:var(--no)}
-
-/* вопросы */
-.fold{border:1px solid var(--hair);border-radius:var(--rad);background:var(--raised);margin:0 0 10px}
-.fold summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.fold summary::-webkit-details-marker{display:none}
-.fold summary::after{content:"+";font-family:var(--serif);color:var(--cobalt);font-size:1.2rem;flex:none}
-.fold[open] summary::after{content:"–"}
-.fold .fold-text{padding:0 16px 14px;color:var(--ink-2)}
-.fold .fold-text p:last-child{margin-bottom:0}
-
-/* канал и забота */
-.wire{max-width:var(--prose);background:var(--raised);border:1px solid var(--hair);border-radius:var(--rad-lg);padding:22px 24px;box-shadow:var(--lift)}
-.wire .channel-link{display:inline-block;margin:8px 0 14px;background:var(--cobalt);color:var(--on-cobalt);text-decoration:none;padding:10px 16px;border-radius:var(--rad);font-weight:600;transition:background var(--t) var(--ease)}
-.wire .channel-link:hover{background:var(--cobalt-fill);color:var(--on-cobalt)}
-.wire .fine{font-size:var(--fs-small);color:var(--ink-3);margin:0}
-.notice-18{max-width:var(--prose);font-size:var(--fs-ui);color:var(--ink-2);border:1px dashed var(--hair-2);border-radius:var(--rad-lg);padding:14px 18px;margin-top:28px}
-.notice-18 b{color:var(--ink)}
-
-/* подвал */
-.endmatter{border-top:1px solid var(--hair);background:var(--sheet);padding:36px 0 48px;font-size:var(--fs-small);color:var(--ink-3)}
-.endmatter-in{max-width:var(--wide);margin:0 auto;padding:0 var(--gap);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.endmatter h3{font-size:1rem;margin:0 0 8px;color:var(--ink-2)}
-.endmatter p{margin:0 0 6px}
-.endmatter a{color:var(--ink-2)}
-
-@media (max-width:860px){
- .intro{grid-template-columns:1fr}
- .leaf-in{grid-template-columns:1fr}
- .marginal{padding-top:0;margin-bottom:4px}
- .endmatter-in{grid-template-columns:1fr}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:1ms!important}}
-</style>
+<link rel="stylesheet" href="/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","@id":"https://reyting-online-kazino924.github.io/#page","headline":"Рейтинг онлайн казино 2026: как читать чужой топ и отличить его от витрины","description":"Как читать чужой рейтинг онлайн казино в 2026 году: где искать методику и веса критериев, что значит дата проверки, как увидеть конфликт интересов и витрину с /go/-редиректами.","inLanguage":"ru","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Organization","name":"Редакция «Шкала и дата»"},"publisher":{"@type":"Organization","name":"Редакция «Шкала и дата»"},"mainEntityOfPage":"https://reyting-online-kazino924.github.io/"}
 </script>
@@ -200,6 +65,28 @@ tbody tr:hover td{background:var(--sheet-2)}
   </dl>
   <p class="dossier-sum">R-1 заполняет все шесть полей — <span class="tone-ok">читается как рейтинг</span>. R-2 заполняет одно — <span class="tone-no">читается как витрина</span>. R-3 заполняет четыре и молчит о доходе — читается с поправкой.</p>
  </aside>
+</section>
+
+<section class="leaf" id="clusters">
+ <div class="leaf-in">
+  <div class="marginal">Разборы</div>
+  <div class="copy">
+   <h2>Разборы по денежным кластерам</h2>
+   <p>Отдельные страницы разбирают, как Telegram-канал top_casino_2027 ведёт свой список в каждом денежном срезе — от игры на реальные деньги до RTP, кассы и лицензий. Каждая опирается на посты канала и объясняет, из чего складываются его строки.</p>
+   <ul class="crosslinks">
+    <li><a href="/kazino-na-realnye-dengi/"><b>Казино на реальные деньги</b><span>что канал относит к игре на деньги и как ранжирует</span></a></li>
+    <li><a href="/kazino-s-vyvodom-deneg/"><b>Казино с выводом денег</b><span>методы, лимиты и верификация на выводе</span></a></li>
+    <li><a href="/kazino-bystryj-vyvod/"><b>Казино с быстрым выводом</b><span>сроки выплат и что на них влияет</span></a></li>
+    <li><a href="/igrovye-avtomaty-na-dengi/"><b>Игровые автоматы на деньги</b><span>RTP, волатильность и провайдеры слотов</span></a></li>
+    <li><a href="/kazino-minimalnyj-depozit/"><b>Минимальный депозит</b><span>порог входа от 100 ₽ и методы</span></a></li>
+    <li><a href="/kazino-bonus-za-registraciyu/"><b>Бонус за регистрацию</b><span>размер пакета против условий отыгрыша</span></a></li>
+    <li><a href="/licenzionnye-kazino-na-rubli/"><b>Лицензионные казино на рубли</b><span>регуляторы, номер лицензии и 244-ФЗ</span></a></li>
+    <li><a href="/kazino-vyvod-na-kartu/"><b>Вывод денег на карту</b><span>карты, СБП, лимиты и сроки зачисления</span></a></li>
+    <li><a href="/top-nadezhnye-kazino/"><b>ТОП-10 надёжных казино</b><span>как устроен сам рейтинг канала</span></a></li>
+    <li><a href="/kazino-vysokij-rtp/"><b>Казино с высоким RTP</b><span>диапазон отдачи 93,5–98,8 % и как его читать</span></a></li>
+   </ul>
+  </div>
+ </div>
 </section>
 
 <section class="leaf" id="fields">
